@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-15T13:31:33.397Z</updated>
+  <updated>2016-12-15T14:47:49.397Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/12/15/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"/>
     <id>http://yoursite.com/2016/12/15/hexo博客搭建记录/</id>
     <published>2016-12-15T11:35:02.086Z</published>
-    <updated>2016-12-15T13:31:33.397Z</updated>
+    <updated>2016-12-15T14:47:49.397Z</updated>
     
     <content type="html"><![CDATA[<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h3><ul>
 <li>注册 <a href="github.com">GitHub</a></li>
@@ -66,7 +66,7 @@
 <li><a href="http://www.jianshu.com/p/05289a4bc8b2#" target="_blank" rel="external">如何搭建一个独立博客——简明Github Pages与Hexo教程</a>(内容详实，推荐)</li>
 <li><a href="http://www.jianshu.com/p/13e64c9e2295" target="_blank" rel="external">Mac上搭建基于GitHub的Hexo博客</a></li>
 <li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo官方文档</a></li>
-<li><a href="http://blog.niices.com/Hexo-Next-Algolia-Search/" target="_blank" rel="external">Hexo+Next主题集成Algolia搜索</a></li>
+<li><a href="http://www.jianshu.com/p/fa2354d61e37" target="_blank" rel="external">hexo+next添加algolia搜索</a>(此处官方文档有误，需在 themes\next\layout_partials\header.swig 中增加相应语句)</li>
 </ol>
 ]]></content>
     

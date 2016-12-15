@@ -92,7 +92,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/12/15/hexo博客搭建记录/index.html">
 <meta property="og:site_name" content="侧巫掠">
 <meta property="og:description" content="总结最近在Github上搭建Hexo博客的经历，系统为Windows10。">
-<meta property="og:updated_time" content="2016-12-15T13:31:33.397Z">
+<meta property="og:updated_time" content="2016-12-15T14:47:49.397Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo博客搭建记录">
 <meta name="twitter:description" content="总结最近在Github上搭建Hexo博客的经历，系统为Windows10。">
@@ -225,7 +225,7 @@
       
         <li class="menu-item menu-item-search">
           
-            <a href="javascript:;" class="st-search-show-outputs">
+            <a href="javascript:;" class="popup-trigger">
           
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
@@ -240,18 +240,26 @@
   
     <div class="site-search">
       
-  <form class="site-search-form">
-  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-</form>
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
 
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
 
-  _st('install', 'TivVzNAvHRzLybTdTb3','2.0.0');
-</script>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
 
 
 
@@ -435,7 +443,7 @@
 <li><a href="http://www.jianshu.com/p/05289a4bc8b2#" target="_blank" rel="external">如何搭建一个独立博客——简明Github Pages与Hexo教程</a>(内容详实，推荐)</li>
 <li><a href="http://www.jianshu.com/p/13e64c9e2295" target="_blank" rel="external">Mac上搭建基于GitHub的Hexo博客</a></li>
 <li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo官方文档</a></li>
-<li><a href="http://blog.niices.com/Hexo-Next-Algolia-Search/" target="_blank" rel="external">Hexo+Next主题集成Algolia搜索</a></li>
+<li><a href="http://www.jianshu.com/p/fa2354d61e37" target="_blank" rel="external">hexo+next添加algolia搜索</a>(此处官方文档有误，需在 themes\next\layout_partials\header.swig 中增加相应语句)</li>
 </ol>
 
       
@@ -889,6 +897,19 @@
   
 
   
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
 
 
 </body>
