@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/12/15/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</loc>
+    
+    <lastmod>2016-12-15T13:31:33.397Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/categories/index.html</loc>
     
     <lastmod>2016-12-15T11:56:36.563Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://yoursite.com/tags/index.html</loc>
     
     <lastmod>2016-12-15T08:27:21.734Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/12/15/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</loc>
-    
-    <lastmod>2016-12-15T08:23:07.803Z</lastmod>
     
   </url>
   
