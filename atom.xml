@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-18T12:08:16.845Z</updated>
+  <updated>2017-01-18T13:53:14.721Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/12/17/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"/>
     <id>http://yoursite.com/2016/12/17/hexo博客搭建记录/</id>
     <published>2016-12-17T10:58:02.000Z</published>
-    <updated>2017-01-18T12:08:16.845Z</updated>
+    <updated>2017-01-18T13:53:14.721Z</updated>
     
     <content type="html"><![CDATA[<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h3><ul>
 <li>注册 <a href="github.com">GitHub</a></li>
@@ -51,6 +51,16 @@
 </li>
 </ul>
 <p>到 username.github.io查看。</p>
+<h4 id="换行编码问题"><a href="#换行编码问题" class="headerlink" title="换行编码问题"></a>换行编码问题</h4><p>若在部署时出现以下类似提示信息：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">The file will have its original line endings <span class="keyword">in</span> your working directory.</div><div class="line">warning: LF will be replaced by CRLF <span class="keyword">in</span> js/src/motion.js.</div><div class="line">The file will have its original line endings <span class="keyword">in</span> your working directory.</div><div class="line">warning: LF will be replaced by CRLF <span class="keyword">in</span> js/src/post-details.js.</div></pre></td></tr></table></figure></p>
+<p>可使用以下命令关闭换行编码转换：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --global core.autocrlf <span class="literal">false</span></div></pre></td></tr></table></figure></p>
+<p>具体情况参见<a href="https://git-scm.com/book/zh/v1/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-%E9%85%8D%E7%BD%AE-Git#格式化与空白" target="_blank" rel="external">Git的文档说明</a>：</p>
+<blockquote>
+<p>假如你正在Windows上写程序，又或者你正在和其他人合作，他们在Windows上编程，而你却在其他系统上，在这些情况下，你可能会遇到行尾结束符问题。这是因为Windows使用回车和换行两个字符来结束一行，而Mac和Linux只使用换行一个字符。虽然这是小问题，但它会极大地扰乱跨平台协作。</p>
+<p>Git可以在你提交时自动地把行结束符CRLF转换成LF，而在签出代码时把LF转换成CRLF。用core.autocrlf来打开此项功能，如果是在Windows系统上，把它设置成true，这样当签出代码时，LF会被转换成CRLF：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --global core.autocrlf <span class="literal">true</span></div></pre></td></tr></table></figure></p>
+<p>Linux或Mac系统使用LF作为行结束符，因此你不想 Git 在签出文件时进行自动的转换；当一个以CRLF为行结束符的文件不小心被引入时你肯定想进行修正，把core.autocrlf设置成input来告诉 Git 在提交时把CRLF转换成LF，签出时不转换：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --global core.autocrlf input</div></pre></td></tr></table></figure></p>
+<p>这样会在Windows系统上的签出文件中保留CRLF，会在Mac和Linux系统上，包括仓库中保留LF。</p>
+<p>如果你是Windows程序员，且正在开发仅运行在Windows上的项目，可以设置false取消此功能，把回车符记录在库中：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --global core.autocrlf <span class="literal">false</span></div></pre></td></tr></table></figure></p>
+</blockquote>
 <h2 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h2><h3 id="发表流程"><a href="#发表流程" class="headerlink" title="发表流程"></a>发表流程</h3><p>使用命令行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo n newpost</div></pre></td></tr></table></figure></p>
 <p>执行命令后，会在<code>\source\_posts</code>下生成一个新的<code>newpost.md</code>文件（文章发表后<code>newpost</code>会作为文章名显示在URL上），用Markdown编辑器打开编写即可。<br>写完后，推送至服务器上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d -g</div></pre></td></tr></table></figure></p>
 <h3 id="文章格式"><a href="#文章格式" class="headerlink" title="文章格式"></a>文章格式</h3><p>Hexo默认使用Markdown语法写文章，对于如何用Markdown语法写文章，推荐以下教程资料：</p>
@@ -96,12 +106,11 @@
 </ul>
 <h2 id="域名设置"><a href="#域名设置" class="headerlink" title="域名设置"></a>域名设置</h2><p><a href="https://help.github.com/articles/using-a-custom-domain-with-github-pages/" target="_blank" rel="external">Using a custom domain with GitHub Pages
 </a></p>
-<p><a href="https://segmentfault.com/a/1190000005775893" target="_blank" rel="external">GitHub Pages 绑定二级域名
-</a></p>
 <h3 id="域名申请"><a href="#域名申请" class="headerlink" title="域名申请"></a>域名申请</h3><p>域名提供商有很多，如 国外的<a href="https://sg.godaddy.com/zh/" target="_blank" rel="external">godaddy</a>、<a href="https://sg.godaddy.com/zh/" target="_blank" rel="external">name</a>、<a href="https://www.namecheap.com/" target="_blank" rel="external">namecheap</a>，国内的<a href="https://wanwang.aliyun.com/" target="_blank" rel="external">万网</a>，具体的域名比价可以参考 <a href="https://www.domcomp.com/" target="_blank" rel="external">Domain Name Price and Availability</a> 这个网站。除了价格原因，如何选择一个靠谱的域名提供商，网上有很多对比文章，比如月光博客的 <a href="http://www.williamlong.info/archives/3852.html" target="_blank" rel="external">《国内国外注册域名的对比》</a>。长远而言，在国外注册域名似乎更“灵活”，但我查了下godaddy，个人隐私保护还需要额外付费，总体价格也不是很有优势，于是选择了万网。</p>
 <p>万网的<code>.com</code> 域名新注册域名55元/年，续费60元/年，加上新用户送的16元优惠券，最少39元首年拿下（关注“阿里云域名”微信公众号还可以获得最新优惠口令，减免10元，但不与优惠券重叠）。</p>
 <p>2016年7月18日起，在万网上注册 <code>.com</code>/<code>.net</code> 域名也必须进行域名实名认证，详见 <a href="https://help.aliyun.com/knowledge_detail/35882.html?spm=5176.200001.n2.21.vgiYpG" target="_blank" rel="external">万网帮助文档</a>。</p>
-<h3 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h3><ol>
+<h3 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h3><p>参见<a href="https://help.github.com/articles/adding-or-removing-a-custom-domain-for-your-github-pages-site/" target="_blank" rel="external">GitHub Pages的帮助文档</a>，具体步骤如下：</p>
+<ol>
 <li>在GitHub项目下点击进入设置 Settings，在 “Custom domain” 下添加URL，此处为 <code>blog.firber.com</code>（<strong>注：</strong>不要在项目目录下创建包含URL的 <code>CNAME</code> 文件，此方法已不适用，虽然完成设置后能正常使用，但在下一次本地提交部署后会更新文件，导致<code>CNAME</code> 文件被删除，最后出现404错误）。</li>
 <li>到万网的域名控制台中，定位到“解析设置”，添加解析 <code>CNAME</code>，主机名为<code>blog</code>，记录值为原有的 GitHub Pages 地址加上点号，此处为<code>firber.github.io.</code>。</li>
 <li>等待几分钟后，访问<code>blog.firber.com</code>就能看到与<code>firber.github.io.</code>相同的页面，证明绑定成功了。</li>
