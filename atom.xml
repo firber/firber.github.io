@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-18T08:45:53.000Z</updated>
+  <updated>2017-01-18T12:08:16.845Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/12/17/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"/>
     <id>http://yoursite.com/2016/12/17/hexo博客搭建记录/</id>
     <published>2016-12-17T10:58:02.000Z</published>
-    <updated>2017-01-18T08:45:53.000Z</updated>
+    <updated>2017-01-18T12:08:16.845Z</updated>
     
     <content type="html"><![CDATA[<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h3><ul>
 <li>注册 <a href="github.com">GitHub</a></li>
@@ -51,37 +51,15 @@
 </li>
 </ul>
 <p>到 username.github.io查看。</p>
-<h2 id="个性化设置"><a href="#个性化设置" class="headerlink" title="个性化设置"></a>个性化设置</h2><h3 id="安装主题并使用"><a href="#安装主题并使用" class="headerlink" title="安装主题并使用"></a>安装主题并使用</h3><p><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">hexo主题</a>有很多，可自行查找。此处以 <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">next</a>为例。</p>
-<ul>
-<li>安装主题<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd hexo</div><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next # 将next主题文件夹拷贝到工作目录的themes子目录中。</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>打开配置文件，定位到 theme 字段，将其值更改为 next，重新部署至Github。</p>
-<ul>
-<li>主题配置<br>具体见 <a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="external">next的官方文档</a>。</li>
-</ul>
 <h2 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h2><h3 id="发表流程"><a href="#发表流程" class="headerlink" title="发表流程"></a>发表流程</h3><p>使用命令行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo n newpost</div></pre></td></tr></table></figure></p>
 <p>执行命令后，会在<code>\source\_posts</code>下生成一个新的<code>newpost.md</code>文件（文章发表后<code>newpost</code>会作为文章名显示在URL上），用Markdown编辑器打开编写即可。<br>写完后，推送至服务器上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d -g</div></pre></td></tr></table></figure></p>
-<h3 id="文章格式"><a href="#文章格式" class="headerlink" title="文章格式"></a>文章格式</h3><h4 id="默认格式"><a href="#默认格式" class="headerlink" title="默认格式"></a>默认格式</h4><p>Hexo默认使用Markdown语法写文章，对于如何用Markdown语法写文章，推荐以下教程资料：</p>
+<h3 id="文章格式"><a href="#文章格式" class="headerlink" title="文章格式"></a>文章格式</h3><p>Hexo默认使用Markdown语法写文章，对于如何用Markdown语法写文章，推荐以下教程资料：</p>
 <ul>
 <li><a href="http://wowubuntu.com/markdown/" target="_blank" rel="external">Markdown 语法说明 (简体中文版)</a></li>
 <li><a href="http://xianbai.me/learn-md/index.html" target="_blank" rel="external">Learning-Markdown (Markdown 入门参考)</a></li>
 <li><a href="http://www.jianshu.com/p/1e402922ee32/" target="_blank" rel="external">Markdown——入门指南</a><br>除了按照Markdown的语法写文章外，文章开头（Hexo中称为 Front-matter）推荐按照以下格式提供一些必要信息(以本篇文章为例）：<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="attr">title:</span> hexo博客搭建记录   <span class="comment">#文章页面的标题，与文章md文件名不同，不会出现在URL上</span></div><div class="line"><span class="attr">date:</span> <span class="number">2016</span><span class="bullet">-12</span><span class="bullet">-17</span> <span class="number">18</span>:<span class="number">58</span>:<span class="number">02</span> <span class="comment">#文章生成时间，若不填写此项，默认以发布时间为准</span></div><div class="line"><span class="attr">categories:</span> 器 <span class="comment">#文章分类</span></div><div class="line"><span class="attr">tags:</span>   <span class="comment">#文章标签</span></div><div class="line"><span class="bullet">    -</span> hexo</div><div class="line"><span class="bullet">    -</span> github</div><div class="line"><span class="attr">description:</span> 记录在Github上使用Hexo搭建本博客的经历，本地系统为Windows。<span class="comment">#文章摘要，可选</span></div><div class="line"><span class="meta">---</span></div><div class="line"></div><div class="line">正文开始</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="添加文章更新时间"><a href="#添加文章更新时间" class="headerlink" title="添加文章更新时间"></a>添加文章更新时间</h4><p>此处以本博客使用的 Next 主题为例，修改方法为：</p>
-<ol>
-<li><p>修改<code>themes/next/layout/_macro/post.swig</code>文件，在<code>&lt;span class=&quot;post-time&quot;&gt;</code>标签后（即对应的<code>&lt;/span&gt;</code>后）添加以下代码</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;%if post.updated and post.updated &gt; post.date%&#125;</div><div class="line">    &lt;span class="post-updated"&gt;</div><div class="line">        &amp;nbsp; | &amp;nbsp; &#123;&#123; __('post.updated')  &#125;&#125;</div><div class="line">        &lt;time itemprop="dateUpdated" datetime="&#123;&#123; moment(post.updated).format() &#125;&#125;" content="&#123;&#123; date(post.updated, config.date_format) &#125;&#125;"&gt;</div><div class="line">            &#123;&#123; date(post.updated, config.date_format) &#125;&#125;</div><div class="line">        &lt;/time&gt;</div><div class="line">    &lt;/span&gt;</div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>修改语言配置文件 <code>themes/next/languages/zh-Hans.yml</code>（根据语言环境，修改相应的文件）</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">post:</span></div><div class="line"><span class="attr">    updated:</span> 更新于</div></pre></td></tr></table></figure>
-</li>
-<li><p>修改主题配置文件<code>themes/next/_config.yml</code>，新加一行</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">display_updated:</span> <span class="literal">true</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>之后发表文章就会默认用文章 .md文档的最后修改时间在文章开头设置更新时间。当然也可以直接在文档开头Font-matter中手动插入时间：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">updated:</span> <span class="number">2017</span><span class="bullet">-01</span><span class="bullet">-18</span> <span class="number">16</span>:<span class="number">15</span>:<span class="number">41</span></div></pre></td></tr></table></figure></p>
 <h3 id="文章编写"><a href="#文章编写" class="headerlink" title="文章编写"></a>文章编写</h3><h4 id="Markdown编辑器"><a href="#Markdown编辑器" class="headerlink" title="Markdown编辑器"></a>Markdown编辑器</h4><p>Markdown编辑器有很多，个人使用 <a href="https://www.sublimetext.com/3" target="_blank" rel="external">Sublime Text 3</a>配合<a href="https://github.com/SublimeText-Markdown/MarkdownEditing" target="_blank" rel="external"><code>MarkdownEditing</code></a>(<a href="http://www.jeffjade.com/2015/08/28/2015-08-28-Write-Morkdown/" target="_blank" rel="external">SublimeText下写作利器之MarkdownEditing</a>)和<a href="https://github.com/timonwong/OmniMarkupPreviewer" target="_blank" rel="external"><code>OmniMarkupPreviewer</code></a>两款插件来编辑Markdown文本。安装方法参见<a href="http://www.jianshu.com/p/335b7d1be39e" target="_blank" rel="external">介绍Sublime3下两款Markdown插件</a>。<br>安装完成后，可以有许多增强功能，常见的有：</p>
 <ul>
 <li>语法高亮</li>
@@ -106,6 +84,16 @@
 <li><p>保存设置，在新建的文章开头使用快捷键<code>Ctril</code>+<code>Shift</code>+<code>F5</code>，即可快速插入。</p>
 </li>
 </ol>
+<h2 id="个性化设置"><a href="#个性化设置" class="headerlink" title="个性化设置"></a>个性化设置</h2><h3 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h3><p><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">hexo主题</a>有很多，可自行查找。此处以 <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">next</a>为例。</p>
+<ul>
+<li>安装主题<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd hexo</div><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next # 将next主题文件夹拷贝到工作目录的themes子目录中。</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>打开配置文件，定位到 theme 字段，将其值更改为 next，重新部署至Github。</p>
+<ul>
+<li>主题配置<br>具体见 <a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="external">next的官方文档</a>。<h3 id="添加文章更新时间"><a href="#添加文章更新时间" class="headerlink" title="添加文章更新时间"></a>添加文章更新时间</h3>打开<code>themes/next/_config.yml</code>，定位<code>Post Settings</code>，修改相应内容如下：<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">post_meta:</span></div><div class="line"><span class="attr">  updated_at:</span> <span class="literal">true</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
 <h2 id="域名设置"><a href="#域名设置" class="headerlink" title="域名设置"></a>域名设置</h2><p><a href="https://help.github.com/articles/using-a-custom-domain-with-github-pages/" target="_blank" rel="external">Using a custom domain with GitHub Pages
 </a></p>
 <p><a href="https://segmentfault.com/a/1190000005775893" target="_blank" rel="external">GitHub Pages 绑定二级域名
@@ -114,7 +102,7 @@
 <p>万网的<code>.com</code> 域名新注册域名55元/年，续费60元/年，加上新用户送的16元优惠券，最少39元首年拿下（关注“阿里云域名”微信公众号还可以获得最新优惠口令，减免10元，但不与优惠券重叠）。</p>
 <p>2016年7月18日起，在万网上注册 <code>.com</code>/<code>.net</code> 域名也必须进行域名实名认证，详见 <a href="https://help.aliyun.com/knowledge_detail/35882.html?spm=5176.200001.n2.21.vgiYpG" target="_blank" rel="external">万网帮助文档</a>。</p>
 <h3 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h3><ol>
-<li>在GitHub项目的根目录下创建 <code>CNAME</code> 文件（无后缀名），然后编辑内容为所要绑定的域名，此处为 <code>blog.firber.com</code>。</li>
+<li>在GitHub项目下点击进入设置 Settings，在 “Custom domain” 下添加URL，此处为 <code>blog.firber.com</code>（<strong>注：</strong>不要在项目目录下创建包含URL的 <code>CNAME</code> 文件，此方法已不适用，虽然完成设置后能正常使用，但在下一次本地提交部署后会更新文件，导致<code>CNAME</code> 文件被删除，最后出现404错误）。</li>
 <li>到万网的域名控制台中，定位到“解析设置”，添加解析 <code>CNAME</code>，主机名为<code>blog</code>，记录值为原有的 GitHub Pages 地址加上点号，此处为<code>firber.github.io.</code>。</li>
 <li>等待几分钟后，访问<code>blog.firber.com</code>就能看到与<code>firber.github.io.</code>相同的页面，证明绑定成功了。</li>
 </ol>
