@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="侧巫掠" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="firber's blog" type="application/atom+xml" />
 
 
 
@@ -90,9 +90,9 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo博客搭建记录">
 <meta property="og:url" content="http://yoursite.com/2016/12/17/hexo博客搭建记录/index.html">
-<meta property="og:site_name" content="侧巫掠">
+<meta property="og:site_name" content="firber's blog">
 <meta property="og:description" content="记录在Github上使用Hexo搭建本博客的经历，本地系统为Windows。">
-<meta property="og:updated_time" content="2016-12-17T12:45:59.998Z">
+<meta property="og:updated_time" content="2017-01-18T08:45:53.813Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo博客搭建记录">
 <meta name="twitter:description" content="记录在Github上使用Hexo搭建本博客的经历，本地系统为Windows。">
@@ -103,7 +103,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Muse',
     sidebar: {"position":"right","display":"post"},
     fancybox: true,
     motion: true,
@@ -129,7 +129,7 @@
 
 
 
-  <title> hexo博客搭建记录 | 侧巫掠 </title>
+  <title> hexo博客搭建记录 | firber's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -160,7 +160,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">侧巫掠</span>
+      <span class="site-title">firber's blog</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -297,9 +297,9 @@
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="侧巫掠">
+    <meta itemprop="name" content="firber's blog">
     <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="侧巫掠" src="">
+      <img style="display:none;" itemprop="url image" alt="firber's blog" src="">
     </span>
   </span>
 
@@ -334,6 +334,15 @@
 
             
           </span>
+
+          
+            <span class="post-updated">
+            &nbsp; | &nbsp; 更新于
+            <time itemprop="dateUpdated" datetime="2017-01-18T16:45:53+08:00" content="2017-01-18">
+              2017-01-18
+            </time>
+            </span>
+          
 
           
             <span class="post-category" >
@@ -428,7 +437,7 @@
 </li>
 </ul>
 <p>到 username.github.io查看。</p>
-<h2 id="安装主题并使用"><a href="#安装主题并使用" class="headerlink" title="安装主题并使用"></a>安装主题并使用</h2><p><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">hexo主题</a>有很多，可自行查找。此处以 <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">next</a>为例。</p>
+<h2 id="个性化设置"><a href="#个性化设置" class="headerlink" title="个性化设置"></a>个性化设置</h2><h3 id="安装主题并使用"><a href="#安装主题并使用" class="headerlink" title="安装主题并使用"></a>安装主题并使用</h3><p><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">hexo主题</a>有很多，可自行查找。此处以 <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">next</a>为例。</p>
 <ul>
 <li>安装主题<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd hexo</div><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next # 将next主题文件夹拷贝到工作目录的themes子目录中。</div></pre></td></tr></table></figure>
 </li>
@@ -439,14 +448,27 @@
 </ul>
 <h2 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h2><h3 id="发表流程"><a href="#发表流程" class="headerlink" title="发表流程"></a>发表流程</h3><p>使用命令行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo n newpost</div></pre></td></tr></table></figure></p>
 <p>执行命令后，会在<code>\source\_posts</code>下生成一个新的<code>newpost.md</code>文件（文章发表后<code>newpost</code>会作为文章名显示在URL上），用Markdown编辑器打开编写即可。<br>写完后，推送至服务器上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d -g</div></pre></td></tr></table></figure></p>
-<h3 id="文章编写"><a href="#文章编写" class="headerlink" title="文章编写"></a>文章编写</h3><h4 id="文章格式"><a href="#文章格式" class="headerlink" title="文章格式"></a>文章格式</h4><p>Hexo默认使用Markdown语法写文章，对于如何用Markdown语法写文章，推荐以下教程资料：</p>
+<h3 id="文章格式"><a href="#文章格式" class="headerlink" title="文章格式"></a>文章格式</h3><h4 id="默认格式"><a href="#默认格式" class="headerlink" title="默认格式"></a>默认格式</h4><p>Hexo默认使用Markdown语法写文章，对于如何用Markdown语法写文章，推荐以下教程资料：</p>
 <ul>
 <li><a href="http://wowubuntu.com/markdown/" target="_blank" rel="external">Markdown 语法说明 (简体中文版)</a></li>
 <li><a href="http://xianbai.me/learn-md/index.html" target="_blank" rel="external">Learning-Markdown (Markdown 入门参考)</a></li>
-<li><a href="http://www.jianshu.com/p/1e402922ee32/" target="_blank" rel="external">Markdown——入门指南</a><br>除了按照Markdown的语法写文章外，文章开头推荐按照以下格式提供一些必要信息(以本篇文章为例）：<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">title: hexo博客搭建记录   <span class="comment">#文章页面的标题，与文章md文件名不同，不会出现在URL上</span></div><div class="line">date: 2016-12-17 18:58:02 <span class="comment">#文章生成时间，若不填写此项，默认以发布时间为准</span></div><div class="line">categories: 器 <span class="comment">#文章分类</span></div><div class="line">tags:   <span class="comment">#文章标签</span></div><div class="line">    - hexo</div><div class="line">    - github</div><div class="line">description: 记录在Github上使用Hexo搭建本博客的经历，本地系统为Windows。<span class="comment">#文章摘要，可选</span></div><div class="line">---</div><div class="line"></div><div class="line">正文开始</div></pre></td></tr></table></figure>
+<li><a href="http://www.jianshu.com/p/1e402922ee32/" target="_blank" rel="external">Markdown——入门指南</a><br>除了按照Markdown的语法写文章外，文章开头（Hexo中称为 Front-matter）推荐按照以下格式提供一些必要信息(以本篇文章为例）：<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="attr">title:</span> hexo博客搭建记录   <span class="comment">#文章页面的标题，与文章md文件名不同，不会出现在URL上</span></div><div class="line"><span class="attr">date:</span> <span class="number">2016</span><span class="bullet">-12</span><span class="bullet">-17</span> <span class="number">18</span>:<span class="number">58</span>:<span class="number">02</span> <span class="comment">#文章生成时间，若不填写此项，默认以发布时间为准</span></div><div class="line"><span class="attr">categories:</span> 器 <span class="comment">#文章分类</span></div><div class="line"><span class="attr">tags:</span>   <span class="comment">#文章标签</span></div><div class="line"><span class="bullet">    -</span> hexo</div><div class="line"><span class="bullet">    -</span> github</div><div class="line"><span class="attr">description:</span> 记录在Github上使用Hexo搭建本博客的经历，本地系统为Windows。<span class="comment">#文章摘要，可选</span></div><div class="line"><span class="meta">---</span></div><div class="line"></div><div class="line">正文开始</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="编辑器-Sublime-Text"><a href="#编辑器-Sublime-Text" class="headerlink" title="编辑器 Sublime Text"></a>编辑器 Sublime Text</h4><h5 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h5><p>Markdown编辑器有很多，个人使用 <a href="https://www.sublimetext.com/3" target="_blank" rel="external">Sublime Text 3</a>配合<a href="https://github.com/SublimeText-Markdown/MarkdownEditing" target="_blank" rel="external"><code>MarkdownEditing</code></a>(<a href="http://www.jeffjade.com/2015/08/28/2015-08-28-Write-Morkdown/" target="_blank" rel="external">SublimeText下写作利器之MarkdownEditing</a>)和<a href="https://github.com/timonwong/OmniMarkupPreviewer" target="_blank" rel="external"><code>OmniMarkupPreviewer</code></a>两款插件来编辑Markdown文本。安装方法参见<a href="http://www.jianshu.com/p/335b7d1be39e" target="_blank" rel="external">介绍Sublime3下两款Markdown插件</a>。<br>安装完成后，可以有许多增强功能，常见的有：</p>
+<h4 id="添加文章更新时间"><a href="#添加文章更新时间" class="headerlink" title="添加文章更新时间"></a>添加文章更新时间</h4><p>此处以本博客使用的 Next 主题为例，修改方法为：</p>
+<ol>
+<li><p>修改<code>themes/next/layout/_macro/post.swig</code>文件，在<code>&lt;span class=&quot;post-time&quot;&gt;</code>标签后（即对应的<code>&lt;/span&gt;</code>后）添加以下代码</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;%if post.updated and post.updated &gt; post.date%&#125;</div><div class="line">    &lt;span class="post-updated"&gt;</div><div class="line">        &amp;nbsp; | &amp;nbsp; &#123;&#123; __('post.updated')  &#125;&#125;</div><div class="line">        &lt;time itemprop="dateUpdated" datetime="&#123;&#123; moment(post.updated).format() &#125;&#125;" content="&#123;&#123; date(post.updated, config.date_format) &#125;&#125;"&gt;</div><div class="line">            &#123;&#123; date(post.updated, config.date_format) &#125;&#125;</div><div class="line">        &lt;/time&gt;</div><div class="line">    &lt;/span&gt;</div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改语言配置文件 <code>themes/next/languages/zh-Hans.yml</code>（根据语言环境，修改相应的文件）</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">post:</span></div><div class="line"><span class="attr">    updated:</span> 更新于</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改主题配置文件<code>themes/next/_config.yml</code>，新加一行</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">display_updated:</span> <span class="literal">true</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>之后发表文章就会默认用文章 .md文档的最后修改时间在文章开头设置更新时间。当然也可以直接在文档开头Font-matter中手动插入时间：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">updated:</span> <span class="number">2017</span><span class="bullet">-01</span><span class="bullet">-18</span> <span class="number">16</span>:<span class="number">15</span>:<span class="number">41</span></div></pre></td></tr></table></figure></p>
+<h3 id="文章编写"><a href="#文章编写" class="headerlink" title="文章编写"></a>文章编写</h3><h4 id="Markdown编辑器"><a href="#Markdown编辑器" class="headerlink" title="Markdown编辑器"></a>Markdown编辑器</h4><p>Markdown编辑器有很多，个人使用 <a href="https://www.sublimetext.com/3" target="_blank" rel="external">Sublime Text 3</a>配合<a href="https://github.com/SublimeText-Markdown/MarkdownEditing" target="_blank" rel="external"><code>MarkdownEditing</code></a>(<a href="http://www.jeffjade.com/2015/08/28/2015-08-28-Write-Morkdown/" target="_blank" rel="external">SublimeText下写作利器之MarkdownEditing</a>)和<a href="https://github.com/timonwong/OmniMarkupPreviewer" target="_blank" rel="external"><code>OmniMarkupPreviewer</code></a>两款插件来编辑Markdown文本。安装方法参见<a href="http://www.jianshu.com/p/335b7d1be39e" target="_blank" rel="external">介绍Sublime3下两款Markdown插件</a>。<br>安装完成后，可以有许多增强功能，常见的有：</p>
 <ul>
 <li>语法高亮</li>
 <li><code>Ctrl</code>+<code>Win</code>+<code>V</code> 快捷键插入链接</li>
@@ -456,7 +478,7 @@
 <li><code>Ctrl</code>+<code>Alt</code>+<code>X</code> 快捷键导出HTML</li>
 </ul>
 <p>更详细的使用说明可参见插件的官方文档。</p>
-<h5 id="文章格式化"><a href="#文章格式化" class="headerlink" title="文章格式化"></a>文章格式化</h5><p>前文提到在文章正文开始前需提供一些标题之类的必要信息，在 Sublime Text 中可以通过自定义插件格式化输入内容。详细的步骤如下：</p>
+<h4 id="文章格式化"><a href="#文章格式化" class="headerlink" title="文章格式化"></a>文章格式化</h4><p>前文提到在文章正文开始前需提供一些标题之类的必要信息，在 Sublime Text 中可以通过自定义插件格式化输入内容。详细的步骤如下：</p>
 <ol>
 <li>菜单栏：Tools -&gt; Developer -&gt; New Plugin</li>
 <li><p>在打开的插件模板文件中，使用下面的内容覆盖</p>
@@ -465,10 +487,22 @@
 <li><p><code>Ctrl</code>+<code>S</code>保存文件，文件名随便定义，确认保存位置为 <code>Data\Packages\User\</code></p>
 </li>
 <li><p>绑定快捷键：菜单栏 Preferences -&gt; Key Bindings -&gt; User，使用以下内容覆盖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">    &#123;&quot;keys&quot;: [&quot;ctrl+shift+f5&quot;], &quot;command&quot;: &quot;add_post_header&quot; &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">    &#123;<span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+f5"</span>], <span class="attr">"command"</span>: <span class="string">"add_post_header"</span> &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
 </li>
 <li><p>保存设置，在新建的文章开头使用快捷键<code>Ctril</code>+<code>Shift</code>+<code>F5</code>，即可快速插入。</p>
 </li>
+</ol>
+<h2 id="域名设置"><a href="#域名设置" class="headerlink" title="域名设置"></a>域名设置</h2><p><a href="https://help.github.com/articles/using-a-custom-domain-with-github-pages/" target="_blank" rel="external">Using a custom domain with GitHub Pages
+</a></p>
+<p><a href="https://segmentfault.com/a/1190000005775893" target="_blank" rel="external">GitHub Pages 绑定二级域名
+</a></p>
+<h3 id="域名申请"><a href="#域名申请" class="headerlink" title="域名申请"></a>域名申请</h3><p>域名提供商有很多，如 国外的<a href="https://sg.godaddy.com/zh/" target="_blank" rel="external">godaddy</a>、<a href="https://sg.godaddy.com/zh/" target="_blank" rel="external">name</a>、<a href="https://www.namecheap.com/" target="_blank" rel="external">namecheap</a>，国内的<a href="https://wanwang.aliyun.com/" target="_blank" rel="external">万网</a>，具体的域名比价可以参考 <a href="https://www.domcomp.com/" target="_blank" rel="external">Domain Name Price and Availability</a> 这个网站。除了价格原因，如何选择一个靠谱的域名提供商，网上有很多对比文章，比如月光博客的 <a href="http://www.williamlong.info/archives/3852.html" target="_blank" rel="external">《国内国外注册域名的对比》</a>。长远而言，在国外注册域名似乎更“灵活”，但我查了下godaddy，个人隐私保护还需要额外付费，总体价格也不是很有优势，于是选择了万网。</p>
+<p>万网的<code>.com</code> 域名新注册域名55元/年，续费60元/年，加上新用户送的16元优惠券，最少39元首年拿下（关注“阿里云域名”微信公众号还可以获得最新优惠口令，减免10元，但不与优惠券重叠）。</p>
+<p>2016年7月18日起，在万网上注册 <code>.com</code>/<code>.net</code> 域名也必须进行域名实名认证，详见 <a href="https://help.aliyun.com/knowledge_detail/35882.html?spm=5176.200001.n2.21.vgiYpG" target="_blank" rel="external">万网帮助文档</a>。</p>
+<h3 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h3><ol>
+<li>在GitHub项目的根目录下创建 <code>CNAME</code> 文件（无后缀名），然后编辑内容为所要绑定的域名，此处为 <code>blog.firber.com</code>。</li>
+<li>到万网的域名控制台中，定位到“解析设置”，添加解析 <code>CNAME</code>，主机名为<code>blog</code>，记录值为原有的 GitHub Pages 地址加上点号，此处为<code>firber.github.io.</code>。</li>
+<li>等待几分钟后，访问<code>blog.firber.com</code>就能看到与<code>firber.github.io.</code>相同的页面，证明绑定成功了。</li>
 </ol>
 <h2 id="其他参考资料"><a href="#其他参考资料" class="headerlink" title="其他参考资料"></a><em>其他参考资料</em></h2><ol>
 <li><a href="https://zhuanlan.zhihu.com/p/22191919?refer=crossin" target="_blank" rel="external">用 GitHub + Hexo 建立你的第一个博客</a></li>
@@ -477,6 +511,8 @@
 <li><a href="http://www.jianshu.com/p/13e64c9e2295" target="_blank" rel="external">Mac上搭建基于GitHub的Hexo博客</a></li>
 <li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo官方文档</a></li>
 <li><a href="http://www.jianshu.com/p/fa2354d61e37" target="_blank" rel="external">hexo+next添加algolia搜索</a>(此处官方文档有误，需在 themes\next\layout_partials\header.swig 中增加相应语句)</li>
+<li><a href="http://www.yuthon.com/2016/04/11/Tips-for-Hexo-configuration/" target="_blank" rel="external">Tips for Hexo configuration</a></li>
+<li><a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages 官方页面</a></li>
 </ol>
 
       
@@ -571,7 +607,7 @@
                src="/images/avatar.gif"
                alt="firber" />
           <p class="site-author-name" itemprop="name">firber</p>
-          <p class="site-description motion-element" itemprop="description">学一点，再学一点</p>
+          <p class="site-description motion-element" itemprop="description">stay hungry, stay foolish</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
@@ -664,7 +700,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub-Pages"><span class="nav-number">1.1.</span> <span class="nav-text">GitHub Pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js"><span class="nav-number">1.2.</span> <span class="nav-text">Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git工具"><span class="nav-number">1.3.</span> <span class="nav-text">Git工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Hexo创建框架"><span class="nav-number">2.</span> <span class="nav-text">使用Hexo创建框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo命令行工具"><span class="nav-number">2.1.</span> <span class="nav-text">安装Hexo命令行工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">2.2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地部署并预览"><span class="nav-number">2.3.</span> <span class="nav-text">本地部署并预览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署至-GitHub"><span class="nav-number">2.4.</span> <span class="nav-text">部署至 GitHub</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装主题并使用"><span class="nav-number">3.</span> <span class="nav-text">安装主题并使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发表文章"><span class="nav-number">4.</span> <span class="nav-text">发表文章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发表流程"><span class="nav-number">4.1.</span> <span class="nav-text">发表流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章编写"><span class="nav-number">4.2.</span> <span class="nav-text">文章编写</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文章格式"><span class="nav-number">4.2.1.</span> <span class="nav-text">文章格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编辑器-Sublime-Text"><span class="nav-number">4.2.2.</span> <span class="nav-text">编辑器 Sublime Text</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#插件"><span class="nav-number">4.2.2.1.</span> <span class="nav-text">插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#文章格式化"><span class="nav-number">4.2.2.2.</span> <span class="nav-text">文章格式化</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他参考资料"><span class="nav-number">5.</span> <span class="nav-text">其他参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub-Pages"><span class="nav-number">1.1.</span> <span class="nav-text">GitHub Pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js"><span class="nav-number">1.2.</span> <span class="nav-text">Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git工具"><span class="nav-number">1.3.</span> <span class="nav-text">Git工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Hexo创建框架"><span class="nav-number">2.</span> <span class="nav-text">使用Hexo创建框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo命令行工具"><span class="nav-number">2.1.</span> <span class="nav-text">安装Hexo命令行工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">2.2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地部署并预览"><span class="nav-number">2.3.</span> <span class="nav-text">本地部署并预览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署至-GitHub"><span class="nav-number">2.4.</span> <span class="nav-text">部署至 GitHub</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个性化设置"><span class="nav-number">3.</span> <span class="nav-text">个性化设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装主题并使用"><span class="nav-number">3.1.</span> <span class="nav-text">安装主题并使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发表文章"><span class="nav-number">4.</span> <span class="nav-text">发表文章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发表流程"><span class="nav-number">4.1.</span> <span class="nav-text">发表流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章格式"><span class="nav-number">4.2.</span> <span class="nav-text">文章格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#默认格式"><span class="nav-number">4.2.1.</span> <span class="nav-text">默认格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加文章更新时间"><span class="nav-number">4.2.2.</span> <span class="nav-text">添加文章更新时间</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章编写"><span class="nav-number">4.3.</span> <span class="nav-text">文章编写</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Markdown编辑器"><span class="nav-number">4.3.1.</span> <span class="nav-text">Markdown编辑器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文章格式化"><span class="nav-number">4.3.2.</span> <span class="nav-text">文章格式化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域名设置"><span class="nav-number">5.</span> <span class="nav-text">域名设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#域名申请"><span class="nav-number">5.1.</span> <span class="nav-text">域名申请</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名绑定"><span class="nav-number">5.2.</span> <span class="nav-text">域名绑定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他参考资料"><span class="nav-number">6.</span> <span class="nav-text">其他参考资料</span></a></li></ol></div>
             
 
           </div>
@@ -685,7 +721,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -700,7 +736,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Muse
   </a>
 </div>
 
