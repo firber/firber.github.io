@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-19T04:24:14.212Z</updated>
+  <updated>2017-01-19T14:30:28.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,10 +20,9 @@
     <link href="http://yoursite.com/2017/01/04/%E3%80%8AHead%20First%20HTML%20%E4%B8%8ECSS%EF%BC%88%E7%AC%AC2%E7%89%88%EF%BC%89%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2017/01/04/《Head First HTML 与CSS（第2版）》读书笔记/</id>
     <published>2017-01-04T06:36:23.000Z</published>
-    <updated>2017-01-19T04:24:14.212Z</updated>
+    <updated>2017-01-19T14:30:28.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://book.douban.com/subject/25752357/" target="_blank" rel="external">《Head First HTML 与CSS（第2版）》豆瓣首页</a> </p>
-<p><img src="https://img3.doubanio.com/lpic/s27104165.jpg" alt="book cover"></p>
+    <content type="html"><![CDATA[<p><a href="http://feliving.github.io/" target="_blank" rel="external">《Head First HTML 与CSS（第2版）》</a>是比较基础的入门书，快速过一遍，了解HTML和CSS最基本的概念和知识。<br><img src="https://img3.doubanio.com/lpic/s27104165.jpg" alt="book cover"><br><a id="more"></a></p>
 <h1 id="认识HTML"><a href="#认识HTML" class="headerlink" title="认识HTML"></a>认识HTML</h1><h2 id="标记语言"><a href="#标记语言" class="headerlink" title="标记语言"></a>标记语言</h2><ul>
 <li>Web服务器存储并提供由HTML和CSS创建的网页。浏览器获取页面，并根据HTML和CSS显示网页的内容。</li>
 <li>HTML 是超文本标记语言 (HyperText Markup Language) 的缩写，用以建立网页的结构。</li>
@@ -601,18 +600,33 @@
 <p>如果希望页面的某一部分大小固定，而另一部分可以扩展和收缩，这就是一个很好的布局选择；或者如果需要精确地指定某个元素的位置，也很适合选择绝对定位。</p>
 <p>不过这种布局在此处存在一个缺点：浏览器变宽时，边栏会再次覆盖页脚。</p>
 <h3 id="表格显示布局的特点"><a href="#表格显示布局的特点" class="headerlink" title="表格显示布局的特点"></a>表格显示布局的特点</h3><p>通过在HTML结构使用<code>&lt;div&gt;</code>，形成表格显示布局，可以得到完美对齐的两列，而且可以随浏览器窗口的大小扩展和收缩。<br>如果需要建立多栏布局，而且内容栏是均匀的，表格显示就是一个很好的布局策略。</p>
-<h1 id="HTML5标记"><a href="#HTML5标记" class="headerlink" title="HTML5标记"></a>HTML5标记</h1><h1 id="表格与更多列表"><a href="#表格与更多列表" class="headerlink" title="表格与更多列表"></a>表格与更多列表</h1><h1 id="HTML表单"><a href="#HTML表单" class="headerlink" title="HTML表单"></a>HTML表单</h1>]]></content>
+<h1 id="HTML5标记"><a href="#HTML5标记" class="headerlink" title="HTML5标记"></a>HTML5标记</h1><p>HTML5为HTML增加了很多新元素，但较早的浏览器不支持新的HTML5元素，所以一定要知道主要用户使用哪些浏览器访问你的Web页面，除非能确保新元素对你的用户适用，否则不要贸然使用这些新元素。</p>
+<h2 id="div元素和HTML5新元素"><a href="#div元素和HTML5新元素" class="headerlink" title="div元素和HTML5新元素"></a>div元素和HTML5新元素</h2><p><code>&lt;section&gt;</code>用于对相关的内容分组。</p>
+<p><code>&lt;article&gt;</code>用于类似博客帖子、论坛帖子和新闻报道等独立的内容。</p>
+<p><code>&lt;aside&gt;</code>用于表示不作为页面主内容的次要内容，如插图和边栏。</p>
+<p><code>&lt;nav&gt;</code>用于组织网站导航链接。</p>
+<p><code>&lt;header&gt;</code>将标题、logo和署名等通常放在页面或区块最上方的内容组织在一起。</p>
+<p><code>&lt;footer&gt;</code>将诸如文档信息、法律措辞和版权说明等通常在页面或区块最下方的内容组织在一起。</p>
+<p><code>&lt;time&gt;</code>用来标记时间和日期。</p>
+<p><code>&lt;div&gt;</code>仍然用于建立结构。它通常将元素组织在一起来指定样式，或者有些内容可能不适合放在HTML5中那些与结构相关的新元素中，这些内容就可以使用<code>&lt;div&gt;</code>创建结构。</p>
+<h2 id="video元素"><a href="#video元素" class="headerlink" title="video元素"></a>video元素</h2><p><code>&lt;video&gt;</code>用于为页面增加视频。</p>
+<p>视频编码是用来创建视频文件的编码。常用的编码包括h.264、Vp8和Theora。</p>
+<p>视频同期文件包含视频、音频和元数据。流行的容器格式包括MP4、OGG和WebM。</p>
+<p>要提供多个视频源文件，确保你的用户可以在他们的浏览器中观看你的视频文件。</p>
+<h1 id="表格与更多列表"><a href="#表格与更多列表" class="headerlink" title="表格与更多列表"></a>表格与更多列表</h1><h1 id="HTML表单"><a href="#HTML表单" class="headerlink" title="HTML表单"></a>HTML表单</h1>]]></content>
     
     <summary type="html">
     
-      《《Head First HTML 与CSS（第2版）》算是比较简单的入门书，快速过一遍，了解前端的最基本的概念和知识。
+      &lt;p&gt;&lt;a href=&quot;http://feliving.github.io/&quot;&gt;《Head First HTML 与CSS（第2版）》&lt;/a&gt;是比较基础的入门书，快速过一遍，了解HTML和CSS最基本的概念和知识。&lt;br&gt;&lt;img src=&quot;https://img3.doubanio.com/lpic/s27104165.jpg&quot; alt=&quot;book cover&quot;&gt;&lt;br&gt;
     
     </summary>
     
       <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="前端" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="HTML" scheme="http://yoursite.com/tags/HTML/"/>
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
     
   </entry>
   
