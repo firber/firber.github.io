@@ -749,7 +749,7 @@
     <link href="http://yoursite.com/2016/12/17/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"/>
     <id>http://yoursite.com/2016/12/17/hexo博客搭建记录/</id>
     <published>2016-12-17T10:58:02.000Z</published>
-    <updated>2017-02-02T02:27:31.000Z</updated>
+    <updated>2017-02-06T08:44:58.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h3><ul>
 <li>注册 <a href="github.com">GitHub</a></li>
@@ -881,7 +881,7 @@
     
     <summary type="html">
     
-      记录在Github上使用Hexo搭建本博客的经历，本地系统为Windows。
+      记录在Github上使用Hexo搭建本博客的经历。
     
     </summary>
     
