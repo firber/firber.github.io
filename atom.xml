@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-25T06:37:43.114Z</updated>
+  <updated>2017-02-06T06:02:27.569Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,86 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="http://yoursite.com/2017/02/06/%E5%BB%96%E9%9B%AA%E5%B3%B0Python%E6%95%99%E7%A8%8B%E7%94%B5%E5%AD%90%E4%B9%A6%E5%88%B6%E4%BD%9C/"/>
+    <id>http://yoursite.com/2017/02/06/廖雪峰Python教程电子书制作/</id>
+    <published>2017-02-06T00:27:58.767Z</published>
+    <updated>2017-02-06T06:02:27.569Z</updated>
+    
+    <content type="html"><![CDATA[<p>title: 《廖雪峰Python教程》电子书制作<br>date: 2017-2-6 14:01:55<br>categories:  Python<br>tags: </p>
+<pre><code>- 爬虫
+- kindle
+</code></pre><!-- comments: false -->
+<p>廖雪峰的<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="external">Python教程</a>是很不错的Python入门资料，可惜只有网页形式，只能在线阅读，如果能将其转化为mobi电子书放在kindle上阅读，则会方便很多。本文记录了如何使用Python及其他工具抓取廖雪峰的Python教程制作电子书的过程,也正好学以致用。<br><a id="more"></a></p>
+<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><h2 id="编程语言-Python"><a href="#编程语言-Python" class="headerlink" title="编程语言 Python"></a>编程语言 Python</h2><p>Python版本：3.5<br>第三方库：</p>
+<ul>
+<li><a href="http://docs.python-requests.org/zh_CN/latest/" target="_blank" rel="external">requests</a> 代替Python官方的 urllib.request 请求内容</li>
+<li><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank" rel="external">BeautifulSoup</a> 解析网页信息，定位目标内容</li>
+</ul>
+<h2 id="编辑器-Sublime-Text-3"><a href="#编辑器-Sublime-Text-3" class="headerlink" title="编辑器 Sublime Text 3"></a>编辑器 Sublime Text 3</h2><p><a href="https://www.sublimetext.com/" target="_blank" rel="external">Sublime Text 3</a>作为文本编辑器，此外也用到了包 <a href="https://github.com/timonwong/OmniMarkupPreviewer" target="_blank" rel="external">OmniMarkupPreviewer</a>，用于给抓取的内容添加简单的CSS格式。</p>
+<h2 id="Calibre"><a href="#Calibre" class="headerlink" title="Calibre"></a>Calibre</h2><p><a href="http://calibre-ebook.com/" target="_blank" rel="external">Calibre</a>是一个免费的电子书管理工具，此处用于将网页文件转化成电子书格式。</p>
+<h1 id="抓取内容"><a href="#抓取内容" class="headerlink" title="抓取内容"></a>抓取内容</h1><h2 id="分析网页"><a href="#分析网页" class="headerlink" title="分析网页"></a>分析网页</h2><p>抓取内容首先要明确要抓取的内容在哪里，因为不是所有内容都集中在一个网页上，而且一个网页上的内容也不会全是你想要的，所以首先要做的事情有两件：</p>
+<ol>
+<li>得到要抓取内容所在网页的URL集合（如果有专门的索引页就比较省事）</li>
+<li>在网页中找到抓取内容所在的<code>div</code>容器</li>
+</ol>
+<p>在chrome中打开<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="external">Python教程</a>，可以看到页面左侧有目录边栏，右边主体部分为教程正文内容。<br><img src="http://ok80lid6z.bkt.clouddn.com/17-2-5/36953308-file_1486297404854_fe01.png" alt="首页页面"></p>
+<p>通过<code>Ctrl</code>+<code>U</code>组合键查看网页源代码,可以找到以下信息：<br><img src="http://ok80lid6z.bkt.clouddn.com/17-2-5/16524002-file_1486297141987_ae23.png" alt="目录"><br>目录信息包含在类名class为 “uk-nav uk-nav-side” style属性为 “margin-right:-15px;” 的无序列表<code>ul</code>中。此外目录有以下特点：</p>
+<ul>
+<li>目录有级别大小，如“Python教程”为最高级，“Python简介”为一级目录，“Python解释器”是“安装Python”的二级目录。</li>
+<li>目录的级别通过所在元素的右边外边距位移量 (margin-right)设置来区分，如最高级目录无位移量，一级目录为 “1em”， 二级目录为 “2em”，三级目录为 “3em”。</li>
+</ul>
+<p><img src="http://ok80lid6z.bkt.clouddn.com/17-2-5/89271273-file_1486297336388_c869.png" alt="正文"><br>正文内容包含在类名class为 “x-wiki-content” 的<code>div</code>容器中。可以发现，正文中有时会以<code>&lt;img&gt;</code>的形式包含一些图片链接（部分教程内容甚至还有视频），如果要制作电子书，这些图片文件也必须同时下载下来。</p>
+<h2 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h2><h3 id="获取目录"><a href="#获取目录" class="headerlink" title="获取目录"></a>获取目录</h3><p>前文已知目录信息的位置，获取目录的代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">import</span> re</div><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"></div><div class="line">url_prefix = <span class="string">'http://www.liaoxuefeng.com'</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getToc</span><span class="params">(url)</span>:</span></div><div class="line">    r = requests.get(url)</div><div class="line">    soup = BeautifulSoup(r.text, <span class="string">"html.parser"</span>)</div><div class="line">    div = soup.find(<span class="string">'ul'</span>, &#123; <span class="string">'style'</span>:<span class="string">'margin-right:-15px;'</span> &#125;)</div><div class="line"></div><div class="line">    articles = []</div><div class="line">    <span class="keyword">for</span> link <span class="keyword">in</span> div.find_all(<span class="string">'li'</span>):</div><div class="line">        <span class="keyword">if</span> link.has_attr(<span class="string">'style'</span>):</div><div class="line">            level = re.findall(<span class="string">r'[0-9]'</span>, link[<span class="string">'style'</span>])[<span class="number">0</span>]</div><div class="line">            level = int(level)</div><div class="line">        <span class="keyword">else</span>: level = <span class="number">1</span></div><div class="line">        title = link.a.get_text()</div><div class="line">        url = url_prefix + link.a[<span class="string">'href'</span>]</div><div class="line">        a = &#123; <span class="string">'title'</span>: title, <span class="string">'url'</span>: url, <span class="string">'level'</span>: level&#125;</div><div class="line">        articles.append(a)</div><div class="line"></div><div class="line">    <span class="keyword">return</span> articles</div></pre></td></tr></table></figure></p>
+<p>总体来说，对于定义的<code>getToc(url)</code>函数，传入一个URL（此处应为Python教程首页 <a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000</a> ），返回一个包含目录必要信息（以字典的形式保存）的列表。</p>
+<p>目录必要信息包括标题，URL和级别。标题可以直接获取，URL则需要增加域名前缀，而目录级别此处是通过正则表达式提取<code>li</code>元素的<code>style</code>属性值中的数值来设定（最高级目录“Python教程”则设定为默认的1级目录）。</p>
+<p>在代码中 requests 的使用只是简单地向URL请求内容并返回网页源码交给 BeautifulSoup 解析，其实给 requests.get(url) 方法增加请求头 header 可以更真实地模拟浏览器的请求方式，此处省略。</p>
+<p>代码中更多的是涉及 BeautifulSoup 的使用,具体可参考其<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank" rel="external">官方文档</a>，简单介绍如下：</p>
+<ul>
+<li>soup.find_all(name, attrs)  搜索当前tag的所有子节点，选择符合过滤器条件的所在内容并以列表的形式返回</li>
+<li>sop.find(name.attrs) 搜索当前tag的所有子节点，选择第一个符合过滤器条件的内容并返回</li>
+<li>tag.has_attr(attr_name) 判断当前tag是否包含 attr_name 属性，并返回相应布尔值</li>
+<li>tag.subtag 返回当前节点的 subtag 子节点</li>
+<li>tag[‘attr’] 返回当前节点的名为’attr’的属性内容</li>
+<li>tag.prettify 返回当前节点的格式化HTML文本</li>
+</ul>
+<h3 id="获取页面内容"><a href="#获取页面内容" class="headerlink" title="获取页面内容"></a>获取页面内容</h3><p>获取页面内容的代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"><span class="keyword">import</span> os</div><div class="line"></div><div class="line">url_prefix = <span class="string">'http://www.liaoxuefeng.com'</span></div><div class="line">index = <span class="number">1</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getArticle</span><span class="params">(url)</span>:</span></div><div class="line">    <span class="keyword">global</span> index</div><div class="line">    r = requests.get(url)</div><div class="line">    soup = BeautifulSoup(r.text, <span class="string">"html.parser"</span>)</div><div class="line">    div = soup.find(<span class="string">"div"</span>,<span class="string">"x-wiki-content"</span>)</div><div class="line">    <span class="keyword">for</span> img <span class="keyword">in</span> div.find_all(<span class="string">"img"</span>):</div><div class="line">        src = img[<span class="string">'src'</span>]</div><div class="line">        <span class="keyword">if</span> re.match(<span class="string">r'^\/.+'</span>, src):</div><div class="line">            src = url_prefix + src</div><div class="line">        pic = requests.get(src)</div><div class="line">        path = os.getcwd() + <span class="string">"\\img\\"</span></div><div class="line">        <span class="keyword">with</span> open(path + str(index) + <span class="string">'.jpg'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</div><div class="line">            f.write(pic.content)</div><div class="line">        img[<span class="string">'src'</span>] = <span class="string">"./img/"</span> + str(index) + <span class="string">".jpg"</span></div><div class="line">        index += <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> div.prettify()</div></pre></td></tr></table></figure></p>
+<p><code>getArticle</code>函数的作用主要有两个，一是从传入的URL所在页面中提取出包含教程内容的HTML代码区段并返回，二是将提取HTML代码区段中的图片下载到本地 (当前目录下的img文件夹，图片文件名以数字序号递增命名)，并将其原链接指向下载的本地图片文件地址。</p>
+<h3 id="整合内容"><a href="#整合内容" class="headerlink" title="整合内容"></a>整合内容</h3><p>将所有内容整合在一起，整体代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">import</span> os, re</div><div class="line"></div><div class="line">file_name = <span class="string">"Python_Guide"</span></div><div class="line">url_prefix = <span class="string">'http://www.liaoxuefeng.com'</span></div><div class="line">start_url = <span class="string">"http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000"</span></div><div class="line">index = <span class="number">1</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getDir</span><span class="params">()</span>:</span></div><div class="line">    path = os.getcwd() + <span class="string">"\\"</span> + file_name</div><div class="line">    <span class="keyword">if</span> os.path.exists(path) <span class="keyword">and</span> os.path.isdir(path):</div><div class="line">        print(<span class="string">"目标目录已经存在！"</span>)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        os.makedirs(path)</div><div class="line">        print(<span class="string">"创建工作目录!"</span>)</div><div class="line"></div><div class="line">    os.chdir(path)</div><div class="line"></div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.isdir(path + <span class="string">"\\img"</span>):</div><div class="line">        os.makedirs(path + <span class="string">"\\img"</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getToc</span><span class="params">(url)</span>:</span></div><div class="line">    r = requests.get(url)</div><div class="line">    soup = BeautifulSoup(r.text, <span class="string">"html.parser"</span>)</div><div class="line">    div = soup.find(<span class="string">'ul'</span>, &#123; <span class="string">'style'</span>:<span class="string">'margin-right:-15px;'</span> &#125;)</div><div class="line"></div><div class="line">    articles = []</div><div class="line">    <span class="keyword">for</span> link <span class="keyword">in</span> div.find_all(<span class="string">'li'</span>):</div><div class="line">        <span class="keyword">if</span> link.has_attr(<span class="string">'style'</span>):</div><div class="line">            level = re.find_all(<span class="string">r'[0-9]'</span>, link[<span class="string">'style'</span>])[<span class="number">0</span>]</div><div class="line">            level = int(level)</div><div class="line">        <span class="keyword">else</span>: level = <span class="number">1</span></div><div class="line">        title = link.a.get_text()</div><div class="line">        url = url_prefix + link.a[<span class="string">'href'</span>]</div><div class="line">        a = &#123; <span class="string">'title'</span>: title, <span class="string">'url'</span>: url, <span class="string">'level'</span>: level&#125;</div><div class="line">        articles.append(a)</div><div class="line"></div><div class="line">    <span class="keyword">return</span> articles</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getArticle</span><span class="params">(url)</span>:</span></div><div class="line">    <span class="keyword">global</span> index</div><div class="line">    r = requests.get(url)</div><div class="line">    soup = BeautifulSoup(r.text, <span class="string">"html.parser"</span>)</div><div class="line">    div = soup.find(<span class="string">"div"</span>,<span class="string">"x-wiki-content"</span>)</div><div class="line">    <span class="keyword">for</span> img <span class="keyword">in</span> div.find_all(<span class="string">"img"</span>):</div><div class="line">        src = img[<span class="string">'src'</span>]</div><div class="line">        <span class="keyword">if</span> re.match(<span class="string">r'^\/.+'</span>, src):</div><div class="line">            src = url_prefix + src</div><div class="line">        pic = requests.get(src)</div><div class="line">        path = os.getcwd() + <span class="string">"\\img\\"</span></div><div class="line">        <span class="keyword">with</span> open(path + str(index) + <span class="string">'.jpg'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</div><div class="line">            f.write(pic.content)</div><div class="line">        img[<span class="string">'src'</span>] = <span class="string">"./img/"</span> + str(index) + <span class="string">".jpg"</span></div><div class="line">        index += <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> div.prettify()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getfile</span><span class="params">()</span>:</span></div><div class="line">    getDir()</div><div class="line">    articles = getToc(start_url)</div><div class="line">    <span class="keyword">with</span> open( file_name + <span class="string">'.md'</span>, mode=<span class="string">'w'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</div><div class="line">        <span class="keyword">for</span> article <span class="keyword">in</span> articles:</div><div class="line">            level, title, url = article[<span class="string">'level'</span>], article[<span class="string">'title'</span>], article[<span class="string">'url'</span>]</div><div class="line">            f.write(<span class="string">"&lt;h%d class=\"toc\"&gt;%s&lt;/h%d&gt;\n"</span> % (level, title, level))</div><div class="line">            f.write(getArticle(url))</div><div class="line">            print(<span class="string">"%s已经完成！"</span> % title)</div><div class="line"></div><div class="line">getfile()</div></pre></td></tr></table></figure></p>
+<p>为了方便电子书的目录制作，在写入提取的HTML内容前，增加类名为 “toc” 的标题元素，标题等级为此前提取出来的目录等级。</p>
+<p>此处没有抓取原网页的CSS样式，为了方便后期添加简单的样式，将文件保存为<code>.md</code>格式。</p>
+<p>运行以上代码，会在当前目录下生成名为 “Python_Guide” 的目录，在目录下有同名的md文件，以及一个保存所有图片文件的’img’文件夹。</p>
+<h1 id="制作电子书"><a href="#制作电子书" class="headerlink" title="制作电子书"></a>制作电子书</h1><h2 id="生成HTML文件"><a href="#生成HTML文件" class="headerlink" title="生成HTML文件"></a>生成HTML文件</h2><p>在安装了 OmniMarkupPreviewer 包的 Sublime Text 3中打开生成的md文件，右键选择 “Export Markup as HTML” 或直接快捷键 Ctrl+Alt+X ，在当前目录生成HTML文件。<br><img src="http://ok80lid6z.bkt.clouddn.com/17-2-6/21827026-file_1486348919801_12aa9.png" alt="Export Markup as HTML"><br>为什么不直接生成HTML文件，而要如此大费周章转化呢？个人觉得，如果直接生成HTML文件，还需额外添加CSS样式，否则在下一步Calibre制作的电子书在格式上会比较难看（当然，Calibre可能会有自定义的CSS样式添加，此处未深入研究），而Markdown本身兼容HTML语法，且 OmniMarkupPreviewer 支持将md文件生成比较清爽风格的HTML文件预览，所以就直接采用了。</p>
+<p>一句话，其实就是最近用ST写markdown比较熟，就顺便如此折腾:-D<br>最后得到的HTML文件打开是这样的：<br><img src="http://ok80lid6z.bkt.clouddn.com/17-2-6/45587346-file_1486349846196_3a99.png" alt=""></p>
+<h2 id="Calibre-生成电子书"><a href="#Calibre-生成电子书" class="headerlink" title="Calibre 生成电子书"></a>Calibre 生成电子书</h2><p>将前文生成的HTML文件与img文件夹打包添加到Calibre的书库中，右键选择“转化书籍”，输入格式为 ZIP， 输出格式为 MOBI，并添加一些自定义内容，如书名，作者，封面图像等等。<br><img src="http://ok80lid6z.bkt.clouddn.com/17-2-6/93639639-file_1486350243748_6db2.png" alt=""></p>
+<p>选择“内容目录”，添加目录，此处就用到了类名的“toc”的标题元素。<br><img src="http://ok80lid6z.bkt.clouddn.com/17-2-6/20425464-file_1486350511694_6e61.png" alt=""></p>
+<p>点击“确定”，生成mobi格式电子书，以下为在Kindle上的使用截图。<br><img src="http://ok80lid6z.bkt.clouddn.com/17-2-6/94211225-file_1486351213627_14e72.png" alt=""><br><img src="http://ok80lid6z.bkt.clouddn.com/17-2-6/39906573-file_1486351199978_6811.png" alt=""><br><img src="http://ok80lid6z.bkt.clouddn.com/17-2-6/92313199-file_1486351148923_d694.png" alt=""></p>
+<p>可以发现在Kindle的目录中无法实现分级，不过不是非常影响使用，略过。</p>
+<p>实际上，<a href="http://www.liaoxuefeng.com" target="_blank" rel="external">廖雪峰的官方网站</a>上除了Python教程，还有<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">Git教程</a>和<a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000" target="_blank" rel="external">JavaScript教程</a>，都可以通过同样的方法制作电子书。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
+<li><a href="http://blog.codinglabs.org/articles/convert-html-to-kindle-book.html" target="_blank" rel="external">抓取网页内容生成Kindle电子书-CodingLabs</a></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;title: 《廖雪峰Python教程》电子书制作&lt;br&gt;date: 2017-2-6 14:01:55&lt;br&gt;categories:  Python&lt;br&gt;tags: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- 爬虫
+- kindle
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- comments: false --&gt;
+&lt;p&gt;廖雪峰的&lt;a href=&quot;http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000&quot;&gt;Python教程&lt;/a&gt;是很不错的Python入门资料，可惜只有网页形式，只能在线阅读，如果能将其转化为mobi电子书放在kindle上阅读，则会方便很多。本文记录了如何使用Python及其他工具抓取廖雪峰的Python教程制作电子书的过程,也正好学以致用。&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>《Head First HTML 与CSS（第2版）》读书笔记</title>
     <link href="http://yoursite.com/2017/01/04/%E3%80%8AHead%20First%20HTML%20%E4%B8%8ECSS%EF%BC%88%E7%AC%AC2%E7%89%88%EF%BC%89%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2017/01/04/《Head First HTML 与CSS（第2版）》读书笔记/</id>
     <published>2017-01-04T06:36:23.000Z</published>
-    <updated>2017-01-25T06:37:43.114Z</updated>
+    <updated>2017-02-02T02:26:44.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://feliving.github.io/" target="_blank" rel="external">《Head First HTML 与CSS（第2版）》</a>是比较基础的入门书，快速过一遍，了解HTML和CSS最基本的概念和知识。<br><img src="https://img3.doubanio.com/lpic/s27104165.jpg" alt="book cover"><br><a id="more"></a></p>
 <h1 id="认识HTML"><a href="#认识HTML" class="headerlink" title="认识HTML"></a>认识HTML</h1><h2 id="标记语言"><a href="#标记语言" class="headerlink" title="标记语言"></a>标记语言</h2><ul>
@@ -660,7 +735,7 @@
     
     </summary>
     
-      <category term="法" scheme="http://yoursite.com/categories/%E6%B3%95/"/>
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
       <category term="HTML" scheme="http://yoursite.com/tags/HTML/"/>
@@ -676,7 +751,7 @@
     <link href="http://yoursite.com/2016/12/17/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"/>
     <id>http://yoursite.com/2016/12/17/hexo博客搭建记录/</id>
     <published>2016-12-17T10:58:02.000Z</published>
-    <updated>2017-01-23T13:47:31.508Z</updated>
+    <updated>2017-02-02T02:27:31.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h3><ul>
 <li>注册 <a href="github.com">GitHub</a></li>
@@ -812,7 +887,7 @@
     
     </summary>
     
-      <category term="器" scheme="http://yoursite.com/categories/%E5%99%A8/"/>
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
       <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
