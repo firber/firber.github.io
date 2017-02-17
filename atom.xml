@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-06T06:08:56.066Z</updated>
+  <updated>2017-02-06T06:08:56.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/02/06/%E5%BB%96%E9%9B%AA%E5%B3%B0Python%E6%95%99%E7%A8%8B%E7%94%B5%E5%AD%90%E4%B9%A6%E5%88%B6%E4%BD%9C/"/>
     <id>http://yoursite.com/2017/02/06/廖雪峰Python教程电子书制作/</id>
     <published>2017-02-06T06:01:55.000Z</published>
-    <updated>2017-02-06T06:08:56.066Z</updated>
+    <updated>2017-02-06T06:08:56.000Z</updated>
     
     <content type="html"><![CDATA[<p>廖雪峰的<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="external">Python教程</a>是很不错的Python入门资料，可惜只有网页形式，只能在线阅读，如果能将其转化为mobi电子书放在kindle上阅读，则会方便很多。本文记录了如何使用Python及其他工具抓取廖雪峰的Python教程制作电子书的过程,也正好学以致用。<br><a id="more"></a></p>
 <h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><h2 id="编程语言-Python"><a href="#编程语言-Python" class="headerlink" title="编程语言 Python"></a>编程语言 Python</h2><p>Python版本：3.5<br>第三方库：</p>
@@ -93,7 +93,7 @@
     <link href="http://yoursite.com/2017/01/04/%E3%80%8AHead%20First%20HTML%20%E4%B8%8ECSS%EF%BC%88%E7%AC%AC2%E7%89%88%EF%BC%89%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2017/01/04/《Head First HTML 与CSS（第2版）》读书笔记/</id>
     <published>2017-01-04T06:36:23.000Z</published>
-    <updated>2017-02-02T02:26:44.000Z</updated>
+    <updated>2017-02-02T02:26:44.513Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://feliving.github.io/" target="_blank" rel="external">《Head First HTML 与CSS（第2版）》</a>是比较基础的入门书，快速过一遍，了解HTML和CSS最基本的概念和知识。<br><img src="https://img3.doubanio.com/lpic/s27104165.jpg" alt="book cover"><br><a id="more"></a></p>
 <h1 id="认识HTML"><a href="#认识HTML" class="headerlink" title="认识HTML"></a>认识HTML</h1><h2 id="标记语言"><a href="#标记语言" class="headerlink" title="标记语言"></a>标记语言</h2><ul>
